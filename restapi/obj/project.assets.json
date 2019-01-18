@@ -14339,11 +14339,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "M:\\Sneha SU\\Q1\\SU_CPSC_5200_19WQ-master (1)\\SU_CPSC_5200_19WQ-master\\restapi\\restapi.csproj",
+      "projectUniqueName": "M:\\Sneha SU\\SWD_Project1-master\\SWD_Project1-master\\restapi\\restapi.csproj",
       "projectName": "restapi",
-      "projectPath": "M:\\Sneha SU\\Q1\\SU_CPSC_5200_19WQ-master (1)\\SU_CPSC_5200_19WQ-master\\restapi\\restapi.csproj",
+      "projectPath": "M:\\Sneha SU\\SWD_Project1-master\\SWD_Project1-master\\restapi\\restapi.csproj",
       "packagesPath": "C:\\Users\\manis\\.nuget\\packages\\",
-      "outputPath": "M:\\Sneha SU\\Q1\\SU_CPSC_5200_19WQ-master (1)\\SU_CPSC_5200_19WQ-master\\restapi\\obj\\",
+      "outputPath": "M:\\Sneha SU\\SWD_Project1-master\\SWD_Project1-master\\restapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

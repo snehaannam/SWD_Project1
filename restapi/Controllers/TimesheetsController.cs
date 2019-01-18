@@ -53,26 +53,35 @@ namespace restapi.Controllers
             return timecard;
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}/{resourceId}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(typeof(InvalidStateError), 409)]
-        public IActionResult DeleteTimecard(string id)
+        [ProducesResponseType(typeof(InvalidResourceError), 409)]
+        public IActionResult DeleteTimecard(string id, int resourceId)
         {
             Timecard timecard = Database.Find(id);
 
-            if (timecard == null)
+            if (timecard != null)
+            {
+                if (timecard.Status != TimecardStatus.Draft && timecard.Status != TimecardStatus.Cancelled)
+                {
+                    return StatusCode(409, new InvalidStateError() { });
+                }
+                
+                if(timecard.Resource != resourceId)
+                {
+                    return StatusCode(409, new InvalidResourceError() { });
+                }
+
+                Database.Delete(id);
+                return Ok();
+            }
+            else
             {
                 return NotFound();
             }
 
-            if (timecard.Status != TimecardStatus.Cancelled && timecard.Status != TimecardStatus.Draft)
-            {
-                    return StatusCode(409, new InvalidStateError() { });
-            }
-
-            Database.Delete(id);
-            return Ok();
         }
 
         [HttpGet("{id}/lines")]
